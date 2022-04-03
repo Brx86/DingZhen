@@ -8,7 +8,9 @@ https://api.aya1.top/randomdj
 
 示例：
 
-    直接访问 https://api.aya1.top/randomdj，跳转到图片地址
+    直接访问 https://api.aya1.top/randomdj 跳转到图片地址
+    访问 https://api.aya1.top/randomdj?r=0 时，返回json
+
 ```bash
 $ curl -s "https://api.aya1.top/randomdj?r=0"
 输出：
