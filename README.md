@@ -20,4 +20,4 @@ https://api.aya1.top/randomdj
 $ curl -s "https://api.aya1.top/randomdj?r=0"
 输出: 
 {"status":"ok","url":"https://ayatale.coding.net/p/picbed/d/DingZhen/git/raw/main/src/917021660f75098cba21f16aa3d7a2ae.jpg"}
-    ```
+```
