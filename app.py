@@ -11,6 +11,7 @@ dj_list = [
     "2c059d03200aa925904f60a5e8adf930.jpg",
     "daf116cd24bb7a265a3e1afcfc5afc78.jpg",
     "b569cd15640351bb448f6970d3544332.jpg",
+    "24f37534d1e3a5a25f68b69a846c3e8b.jpg",
     "7bf0479398616a510b3f778ad6b89708.jpg",
     "7870d725a8db3f73e2531067c1ca837e.jpg",
     "8a8836426dec727b7907128167866ef2.jpg",
@@ -63,6 +64,7 @@ dj_list = [
     "875ee02f2891774e9b8e78923c1c721f.jpg",
     "a7aa4c0598811d426ac77aacc0147ad3.jpg",
     "2817809c1baea241565c52aedf2644e6.jpg",
+    "eca1989300533ee5a877788b91f42917.jpg",
     "fe8353c0233a13c9ff8815954e92ba58.jpg",
     "605360e9fcf6bad98d48301a3cc9e2f8.jpg",
     "923a299401a34759b720ebad20339eb9.jpg",
@@ -74,6 +76,7 @@ dj_list = [
     "d214c64bf79f238cdc9381a5db0aca35.jpg",
     "53bba9b897ea2e797de1eaf9b3d6a586.jpg",
     "48d224a5d263d418ba031abe315deb47.jpg",
+    "4ece9ffb1bf19f31877ebee1fa712ebb.jpg",
     "007a5becf412c9a70f9e1c706b22f01f.jpg",
     "b0ed78278303d304c483415a3b680c87.jpg",
     "def69381d99f68f0cf475712eb61b4b6.jpg",
@@ -86,6 +89,7 @@ dj_list = [
     "69dfdc60bd1c30e42b133069ba11d3ea.jpg",
     "4cd44c72039630c8010467be52386bb9.jpg",
     "fc5f2fd4ffb4456fb245c8f3386ea74d.jpg",
+    "ae4390f689dadd5d669a880ab411a3c4.jpg",
     "78d98a42c1c4ddb60410000df6bb464f.jpg",
     "be24a1223e0d4e888ecfb8eebc5fa8ba.jpg",
     "e49b63ac5fd702aea4a851d0c8c042af.jpg",
@@ -117,6 +121,9 @@ dj_list = [
     "7f22d353906dd2abc68ed667794632c7.jpg",
     "f82c6c29a6ad5b5fa69265451faa4992.jpg",
     "2eac743f170f685a7ebc2ed0bbb96126.jpg",
+    "576eece3c462e6f90f31492e5bd93620.jpg",
+    "c85fe795c1779249a83fd64c7d72e7fe.jpg",
+    "e7f63b86caf4fffd75d27dc72d404a14.jpg",
     "04d0e1a2dc0545f3a98f601217e2f140.jpg",
     "19d814947426f6d6a2daf139217bd1a3.jpg",
     "4c9d532720592fa75f4297b9fd2f4534.jpg",
@@ -144,6 +151,7 @@ dj_list = [
     "a506ab955ffa1edb6bb78d8ed07dfb34.jpg",
     "33ab1dc432efa5048ef0459833fb1ea8.jpg",
     "16414406b95ac434aaf2cfaf41448dbf.jpg",
+    "e8ec2812f1ff441d21abba6bb67bd898.jpg",
     "80cf36b78d2ab81294b5175006a4f3f6.jpg",
     "a9e41ecbd3a359d1c4960acc41bb6e5d.jpg",
     "9b912af664150d6c1f2e963494a351f9.jpg",
@@ -160,6 +168,7 @@ dj_list = [
     "64ed96c8b7118033ad35b9aa74261443.jpg",
     "2880e1142800d1a043aa23723cc05bca.jpg",
     "7a13569584eb2fc35f4c5f5cb9eeb068.jpg",
+    "c4dd860c36b7c5c44cef3c5d9592a8d6.jpg",
     "a77ab20fd051702c6d23417d6e5043db.jpg",
     "87754eabec44cc90ba5c198454871990.jpg",
     "00a23afc5ba20c86efa27cc76670c2ca.jpg",
@@ -181,11 +190,14 @@ dj_list = [
     "4a7cb8bf577950cb9a875ea2c2674d8f.jpg",
     "3f6d25db6b32952d142df1397f9d294b.jpg",
     "91971bd24f004b53fd88bd2328a00718.jpg",
+    "6037cafa938bdec755a998160a9872e5.jpg",
     "dcda208f2ac129de63cdab2e1d7351c1.jpg",
     "527611e280e7f6e9ecf45c6a4080d4f3.jpg",
     "1c263526219b89bd0ed20048374fa153.jpg",
     "12a860ee9738738c2d66eef0940cf553.jpg",
+    "4402c79377ad170bd6eb5ed6289d8582.jpg",
     "3c1cb814fc566de4fe5b3f70bb74003e.jpg",
+    "45dac41fda9c1f77b4604ecbc1e713e0.jpg",
     "4489fdabfb5ee400100954c09c1d2985.jpg",
     "20b870e0d3ee0e7eafd6ec91e99f590d.jpg",
     "0ac55825562b2521dd385a867a16dfef.jpg",
@@ -206,8 +218,13 @@ from random import choice
 app = Flask(__name__)
 
 
+@app.route("/")
+def hello():
+    return {"Github": "https://github.com/Brx86/DingZhen"}
+
+
 @app.route("/randomdj")
-def hello_world():
+def random_dj():
     r = request.args.get("r")
     pic_name = choice(dj_list)
     if r == "0":
