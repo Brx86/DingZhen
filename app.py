@@ -226,12 +226,16 @@ def hello():
 @app.route("/randomdj")
 def random_dj():
     r = request.args.get("r")
+    g = request.args.get("g")
     pic_name = choice(dj_list)
+    pic_url = (
+        f"https://raw.githubusercontent.com/Brx86/DingZhen/main/src/{pic_name}"
+        if g == "1"
+        else f"https://ayatale.coding.net/p/picbed/d/DingZhen/git/raw/main/src/{pic_name}"
+    )
     if r == "0":
         return {
             "status": "ok",
-            "url": f"https://ayatale.coding.net/p/picbed/d/DingZhen/git/raw/main/src/{pic_name}",
+            "url": pic_url,
         }
-    return redirect(
-        f"https://ayatale.coding.net/p/picbed/d/DingZhen/git/raw/main/src/{pic_name}"
-    )
+    return redirect(pic_url)
