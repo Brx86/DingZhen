@@ -17,7 +17,9 @@ https://api.aya1.top/randomdj
     访问 https://api.aya1.top/randomdj?r=0 时，返回json
 
 ```bash
-$ curl -s "https://api.aya1.top/randomdj?r=0"
-输出: 
-{"status":"ok","url":"https://ayatale.coding.net/p/picbed/d/DingZhen/git/raw/main/src/917021660f75098cba21f16aa3d7a2ae.jpg"}
+❯ curl -s "https://api.aya1.top/randomdj?r=0"
+{"status":"ok","url":"https://ayatale.coding.net/p/picbed/d/DingZhen/git/raw/main/src/917021660f75098cba21f16aa3d7>
+
+❯ curl -s "https://api.aya1.top/randomdj?r=0&g=1"
+{"status":"ok","url":"https://raw.githubusercontent.com/Brx86/DingZhen/main/src/5337fbb353d6f1c68c10bdf4cdcc3b56.jpg"}
 ```
