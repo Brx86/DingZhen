@@ -220,7 +220,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello():
-    return {"Github": "https://github.com/Brx86/DingZhen"}
+    return {"repo": "https://github.com/Brx86/DingZhen", "amount": len(dj_list)}
 
 
 @app.route("/randomdj")
