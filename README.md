@@ -18,7 +18,7 @@ https://api.aya1.top/randomdj
 
 ```bash
 ❯ curl -s "https://api.aya1.top/randomdj?r=0"
-{"status":"ok","url":"https://ayatale.coding.net/p/picbed/d/DingZhen/git/raw/main/src/917021660f75098cba21f16aa3d7>
+{"status":"ok","url":"https://ayatale.coding.net/p/picbed/d/DingZhen/git/raw/main/src/e8ec2812f1ff441d21abba6bb67bd898.jpg"}
 
 ❯ curl -s "https://api.aya1.top/randomdj?r=0&g=1"
 {"status":"ok","url":"https://raw.githubusercontent.com/Brx86/DingZhen/main/src/5337fbb353d6f1c68c10bdf4cdcc3b56.jpg"}
