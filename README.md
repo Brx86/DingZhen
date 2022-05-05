@@ -25,9 +25,11 @@ https://api.aya1.top/randomdj
 ```
 
 # 义眼丁真收集站
-另一个丁真表情包收集站，功能更多，界面更友好。 
+另一个丁真表情包收集站，功能更多，界面更友好。
 
 网址: https://www.yiyandingzhen.top/
+
+仓库: https://github.com/PencilCore/yiyandingzhen
 
 ## Api接口:
 http://www.yiyandingzhen.top/getpic.php
