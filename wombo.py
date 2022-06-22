@@ -69,10 +69,12 @@ class Wombo:
             "https://identitytoolkit.googleapis.com/v1/accounts:signUp",
             params={"key": "AIzaSyDCvp5MTJLUdtBYEKYWXJrlLzu1zuKM6Xw"},
         )
-        if token := r.json().get("idToken"):
+        token = r.json().get("idToken")
+        if token:
             print(f"Identified: {token[:30]}...")
             self.client.headers.update({"Authorization": f"bearer {token}"})
             return time.time(), await self.upload_img()
+        return None
 
     # 上传背景图片
     async def upload_img(self):
