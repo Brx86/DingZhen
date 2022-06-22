@@ -58,6 +58,7 @@ async def handle_wombo(item: Item = Body()):
     async with httpx.AsyncClient(timeout=10) as client:
         w = await Wombo.init(client)
         style_name, url = await w.run(item.keywords, item.style)
+        print(f"URL: {url}")
         return {"code": 200, "style": style_name, "keywords": item.keywords, "url": url}
 
 
