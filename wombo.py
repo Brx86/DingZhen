@@ -146,10 +146,11 @@ class Wombo:
 
 # 调用示例
 async def main():
+    keywords = input("请输入你要生成图片的关键词(不输入默认为cloud): ").strip() or "cloud"
     async with httpx.AsyncClient(timeout=10) as client:
         w = await Wombo.init(client)
-        url = await w.run("sun")
-    print(url)
+        style_name, url = await w.run(keywords)
+    print(f"{style_name}: {url}")
 
 
 if __name__ == "__main__":
