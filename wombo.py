@@ -38,11 +38,11 @@ class Wombo:
 
     # 初始化类（因为有异步函数所以不能用__init__）
     @classmethod
-    async def init(cls, client, auth):
+    async def init(cls, client):
         self = Wombo()
         self.client = client
         self.auth = await self.identify()
-        return self, self.auth
+        return self
 
     # 多次尝试调用api
     async def call_api(self, method, api_url, params=None, data=None, headers=None):

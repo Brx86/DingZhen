@@ -18,7 +18,7 @@ class Item(BaseModel):
 
 
 @app.get("/")
-def root():
+def usage_wombo():
     return {"repo": "https://github.com/Brx86/DingZhen", "amount": len(dj_list)}
 
 
@@ -45,11 +45,18 @@ async def err(request: Request, exc: RequestValidationError):
     return JSONResponse({"code": "400", "message": exc.errors()})
 
 
+@app.get("/wombo")
+def usage_wombo():
+    return {
+        "code": 200,
+        "usage": """curl -X POST -H "Content-type: application/json" "https://api.aya1.top/wombo" -d '{"keywords":"example"}'""",
+    }
+
+
 @app.post("/wombo")
-async def get_url(item: Item = Body()):
-    global auth
+async def handle_wombo(item: Item = Body()):
     async with httpx.AsyncClient(timeout=10) as client:
-        w, auth = await Wombo.init(client, auth)
+        w = await Wombo.init(client)
         style_name, url = await w.run(item.keywords, item.style)
         return {"code": 200, "style": style_name, "keywords": item.keywords, "url": url}
 
@@ -57,5 +64,4 @@ async def get_url(item: Item = Body()):
 if __name__ == "__main__":
     import uvicorn  # type: ignore
 
-    auth = (0,)
     uvicorn.run(app, host="0.0.0.0", port=7777)
