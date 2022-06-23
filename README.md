@@ -45,7 +45,8 @@ $ curl -s "https://api.aya1.top/randomdj?r=0&g=1"
 curl调用，关键词`cloud`，返回json
 ```bash
 curl -X POST "https://api.aya1.top/wombo" \                   
--d '{"keywords":"cloud"}' -H "Content-type: application/json" | jq
+-d '{"keywords":"cloud"}' \
+-H "Content-type: application/json" | jq
 ```
 输出：
 ```json
@@ -79,7 +80,9 @@ print(r.json())
 curl调用，关键词`ocean of flowers`，风格`5`FantasyArt，保存到图片
 ```bash
 curl -X POST "https://api.aya1.top/wombo" \                   
--d '{"keywords":"ocean of flowers","style":5,"file":1}' -H "Content-type: application/json" -o example.jpg
+-d '{"keywords":"ocean of flowers","style":5,"file":1}' \
+-H "Content-type: application/json" \
+-o example.jpg
 ```
 输出图片示例：
 ![output1](https://bu.dusays.com/2022/06/23/62b4032b4f4e3.jpg)
