@@ -35,7 +35,7 @@ def root():
 
 
 @app.get("/randomdj", status_code=200)
-def random_dj(r: int = 1, g: int = 1):
+def random_dj(r: int = 1, g: int = 0):
     pic_name = choice(dj_list)
     pic_url = (
         f"https://raw.githubusercontent.com/Brx86/DingZhen/main/src/{pic_name}"
