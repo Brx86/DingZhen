@@ -32,7 +32,7 @@ $ curl -s "https://api.aya1.top/randomdj?r=0&g=1"
 
 ### 隐约丁真（Powered by Wombo.Art）：
 * 根据关键词，调用wombo即时生成
-*  *备注：该api受wombo服务器波动影响较大，返回时间可能在10秒到1分钟不等，在调用时请注意修改超时时间。当wombo服务器繁忙时，长时间未响应将返回{"status": "timeout"}，请注意错误处理。*
+*  备注：该api受wombo服务器波动影响较大，返回时间可能在10秒到1分钟不等，在调用时请注意修改超时时间。当wombo服务器繁忙时，长时间未响应将返回`{"status": "timeout"}`，请注意错误处理。
 #### POST https://api.aya1.top/wombo
 
 | 参数     | 类型 | 默认值   | 说明                 |
@@ -43,14 +43,14 @@ $ curl -s "https://api.aya1.top/randomdj?r=0&g=1"
 
 #### 示例：
 
-1. curl调用，关键词`cloud`，返回json
+* curl调用，关键词`cloud`，返回json
 ```bash
 curl -X POST "https://api.aya1.top/wombo" \                   
 -d '{"keywords":"cloud"}' \
 -H "Content-type: application/json" | jq
 ```
-输出：
 ```json
+// 输出：
 {
     "style": "Ghibli",
     "keywords": "cloud",
@@ -59,7 +59,7 @@ curl -X POST "https://api.aya1.top/wombo" \
 }
 ```
 
-2. python调用，关键词`desert`，风格`18`RoseGold，返回json
+* python调用，关键词`desert`，风格`18`RoseGold，返回json
 ```python
 r = requests.post(
     "https://api.aya1.top/wombo",
@@ -68,8 +68,8 @@ r = requests.post(
 )
 print(r.json())
 ```
-输出：
 ```json
+// 输出：
 {
     "style": "RoseGold",
     "keywords": "desert",
@@ -78,7 +78,7 @@ print(r.json())
 }
 ```
 
-3. curl调用，关键词`ocean of flowers`，风格`5`FantasyArt，保存到图片
+* curl调用，关键词`ocean of flowers`，风格`5`FantasyArt，保存到图片
 ```bash
 curl -X POST "https://api.aya1.top/wombo" \                   
 -d '{"keywords":"ocean of flowers","style":5,"file":1}' \
