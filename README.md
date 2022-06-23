@@ -44,7 +44,7 @@ $ curl -s "https://api.aya1.top/randomdj?r=0&g=1"
 
 curl调用，关键词`cloud`，返回json
 ```bash
-curl -X POST "https://api.aya1.top/wombo" \                   
+curl -X POST "https://api.aya1.top/wombo" \
 -d '{"keywords":"cloud"}' \
 -H "Content-type: application/json" | jq
 ```
@@ -79,18 +79,18 @@ print(r.json())
 
 curl调用，关键词`ocean of flowers`，风格`5`FantasyArt，保存到图片
 ```bash
-curl -X POST "https://api.aya1.top/wombo" \                   
+curl -X POST "https://api.aya1.top/wombo" \
 -d '{"keywords":"ocean of flowers","style":5,"file":1}' \
 -H "Content-type: application/json" \
 -o example.jpg
 ```
 输出图片示例：
-![output1](https://bu.dusays.com/2022/06/23/62b4032b4f4e3.jpg)
+![output1](https://github.com/Brx86/DingZhen/raw/api/output/1.jpg)
 
-![output2](https://bu.dusays.com/2022/06/23/62b40a62edea5.jpg)
+![output2](https://github.com/Brx86/DingZhen/raw/api/output/2.jpg)
 
-![output3](https://bu.dusays.com/2022/06/23/62b4067e36afe.jpg)
+![output3](https://github.com/Brx86/DingZhen/raw/api/output/3.jpg)
 
-![output4](https://bu.dusays.com/2022/06/23/62b407163033b.jpg)
+![output4](https://github.com/Brx86/DingZhen/raw/api/output/4.jpg)
 
-![output5](https://bu.dusays.com/2022/06/23/62b409730ad5a.jpg)
+![output5](https://github.com/Brx86/DingZhen/raw/api/output/5.jpg)
