@@ -71,7 +71,7 @@ class Wombo:
         )
         token = r.json().get("idToken")
         if token:
-            print(f"Identified: {token[:30]}...")
+            print(f"Identified: {token[:50]}...")
             self.client.headers.update({"Authorization": f"bearer {token}"})
             return time.time(), await self.upload_img()
         return None
