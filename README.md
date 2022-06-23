@@ -47,10 +47,10 @@ curl -X POST "https://api.aya1.top/wombo" \
 输出：
 ```json
 {
-  "style": "Ghibli",
-  "keywords": "cloud",
-  "status": "ok",
-  "url": "https://prod-wombo-paint.s3.amazonaws.com/exports/8d0ea5be-b4f8-4de5-b510-9aba6d9cfac4/blank_tradingcard.jpg?AWSAccessKeyId=AKIAWGXQXQ6WCOB7PP5J&Signature=9b9%2B8eVegCrkf8T060cQxCOd9Ek%3D&Expires=1663739352"
+    "style": "Ghibli",
+    "keywords": "cloud",
+    "status": "ok",
+    "url": "https://prod-wombo-paint.s3.amazonaws.com/exports/8d0ea5be-b4f8-4de5-b510-9aba6d9cfac4/blank_tradingcard.jpg?AWSAccessKeyId=AKIAWGXQXQ6WCOB7PP5J&Signature=9b9%2B8eVegCrkf8T060cQxCOd9Ek%3D&Expires=1663739352"
 }
 ```
 
