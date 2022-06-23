@@ -6,7 +6,7 @@
 
 | 参数 | 类型 | 默认值 | 说明                    |
 | ---- | ---- | ------ | ----------------------- |
-| r    | int  | 1      | 值为0时不进行重定向,    |
+| r    | int  | 1      | 值为0时不进行重定向     |
 | g    | int  | 0      | 值为1时返回github的直链 |
 
 #### 示例：
@@ -80,12 +80,12 @@ curl -X POST "https://api.aya1.top/wombo" \
 -o example.jpg
 ```
 输出图片示例：
-![output1](https://bu.dusays.com/2022/06/23/62b4032b4f4e3.jpg)
+![output1](output/1.jpg)
 
-![output2](https://bu.dusays.com/2022/06/23/62b40a62edea5.jpg)
+![output2](output/2.jpg)
 
-![output3](https://bu.dusays.com/2022/06/23/62b4067e36afe.jpg)
+![output3](output/3.jpg)
 
-![output4](https://bu.dusays.com/2022/06/23/62b407163033b.jpg)
+![output4](output/4.jpg)
 
-![output5](https://bu.dusays.com/2022/06/23/62b409730ad5a.jpg)
+![output5](output/5.jpg)
