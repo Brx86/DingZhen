@@ -6,12 +6,12 @@
 ## Api接口
 
 ### 随机丁真（Collected by Aya）
-返回一张随机的丁真表情包
+* 返回一张随机的丁真表情包
 #### GET https://api.aya1.top/randomdj
 
 | 参数 | 类型 | 默认值 | 说明                    |
 | ---- | ---- | ------ | ----------------------- |
-| r    | int  | 1      | 值为0时不进行重定向,    |
+| r    | int  | 1      | 值为0时不进行重定向     |
 | g    | int  | 0      | 值为1时返回github的直链 |
 
 #### 示例：
@@ -31,7 +31,8 @@ $ curl -s "https://api.aya1.top/randomdj?r=0&g=1"
 ```
 
 ### 隐约丁真（Powered by Wombo.Art）：
-根据关键词，调用wombo即时生成
+* 根据关键词，调用wombo即时生成
+*  *备注：该api受wombo服务器波动影响较大，返回时间可能在10秒到1分钟不等，在调用时请注意修改超时时间。当wombo服务器繁忙时，长时间未响应将返回{"status": "timeout"}，请注意错误处理。*
 #### POST https://api.aya1.top/wombo
 
 | 参数     | 类型 | 默认值   | 说明                 |
@@ -42,9 +43,9 @@ $ curl -s "https://api.aya1.top/randomdj?r=0&g=1"
 
 #### 示例：
 
-curl调用，关键词`cloud`，返回json
+1. curl调用，关键词`cloud`，返回json
 ```bash
-curl -X POST "https://api.aya1.top/wombo" \
+curl -X POST "https://api.aya1.top/wombo" \                   
 -d '{"keywords":"cloud"}' \
 -H "Content-type: application/json" | jq
 ```
@@ -58,7 +59,7 @@ curl -X POST "https://api.aya1.top/wombo" \
 }
 ```
 
-python调用，关键词`desert`，风格`18`RoseGold，返回json
+2. python调用，关键词`desert`，风格`18`RoseGold，返回json
 ```python
 r = requests.post(
     "https://api.aya1.top/wombo",
@@ -77,20 +78,17 @@ print(r.json())
 }
 ```
 
-curl调用，关键词`ocean of flowers`，风格`5`FantasyArt，保存到图片
+3. curl调用，关键词`ocean of flowers`，风格`5`FantasyArt，保存到图片
 ```bash
-curl -X POST "https://api.aya1.top/wombo" \
+curl -X POST "https://api.aya1.top/wombo" \                   
 -d '{"keywords":"ocean of flowers","style":5,"file":1}' \
 -H "Content-type: application/json" \
 -o example.jpg
 ```
-输出图片示例：
+
+4. 返回图片示例：
 ![output1](https://github.com/Brx86/DingZhen/raw/api/output/1.jpg)
-
 ![output2](https://github.com/Brx86/DingZhen/raw/api/output/2.jpg)
-
 ![output3](https://github.com/Brx86/DingZhen/raw/api/output/3.jpg)
-
 ![output4](https://github.com/Brx86/DingZhen/raw/api/output/4.jpg)
-
 ![output5](https://github.com/Brx86/DingZhen/raw/api/output/5.jpg)
