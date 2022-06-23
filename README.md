@@ -33,7 +33,7 @@ $ curl -s "https://api.aya1.top/randomdj?r=0&g=1"
 | 参数     | 类型 | 默认值   | 说明                 |
 | -------- | ---- | -------- | -------------------- |
 | keywords | str  | (必填)   | 待生成图片的关键词   |
-| style    | int  | 1~26随机 | 图片风格(1~26的序号) |
+| style    | int  | 1~26随机 | [图片风格](https://github.com/Brx86/DingZhen/blob/api/wombo.py#L4-L31=)(1~26的序号) |
 | file     | int  | 0        | 值为1时返回图片文件  |
 
 #### 示例：
