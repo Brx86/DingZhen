@@ -49,7 +49,7 @@ curl -X POST "https://api.aya1.top/wombo" \
 -d '{"keywords":"cloud"}' \
 -H "Content-type: application/json" | jq
 ```
-```json
+```js
 // 输出：
 {
     "style": "Ghibli",
@@ -68,7 +68,7 @@ r = requests.post(
 )
 print(r.json())
 ```
-```json
+```js
 // 输出：
 {
     "style": "RoseGold",
