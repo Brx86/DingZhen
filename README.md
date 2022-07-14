@@ -1,5 +1,5 @@
 ## Api接口
-
+ 
 ### 随机丁真（Collected by Aya）
 * 返回一张随机的丁真表情包
 #### GET https://api.aya1.top/randomdj
