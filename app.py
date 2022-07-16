@@ -1,6 +1,6 @@
 import httpx
 from io import BytesIO
-from random import choice
+from random import choice, randint
 from typing import Optional
 from pydantic import BaseModel, Field, conint
 from fastapi import FastAPI, Request, Response, Body
@@ -44,6 +44,12 @@ def random_dj(r: int = 1, g: int = 0):
     )
     if r == 0:
         return {"status": "ok", "url": pic_url}
+    return RedirectResponse(pic_url)
+
+
+@app.get("/kemo", status_code=200)
+def kemo():
+    pic_url = f"https://ayatale.coding.net/p/picbed/d/kemo/git/raw/master/{randint(1,696)}.jpg"
     return RedirectResponse(pic_url)
 
 
