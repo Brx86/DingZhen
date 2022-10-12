@@ -1,14 +1,16 @@
-import httpx
+import asyncio
 from io import BytesIO
 from random import choice, randint
 from typing import Optional
-from pydantic import BaseModel, Field, conint
-from fastapi import FastAPI, Request, Response, Body
+
+import httpx
+from fastapi import Body, FastAPI, Request, Response
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse, RedirectResponse, StreamingResponse
+from pydantic import BaseModel, Field, conint
 
-from wombo import Wombo
 from piclist import dj_list
+from wombo import Wombo
 
 app = FastAPI()
 
@@ -85,6 +87,41 @@ async def handle_wombo(response: Response, item: Item = Body()):
         response.status_code = 408
         info.update({"status": "timeout"})
         return info
+
+
+from naifu_utils import get_one, naifu_set, run, sd_set
+
+
+@app.get("/ai")
+async def redirect_url():
+    if url := await get_one():
+        return RedirectResponse(url)
+    else:
+        return "当前没有可用的地址！"
+
+
+@app.get("/ai/url")
+async def return_url():
+    return await get_one()
+
+
+@app.get("/ai/{action}")
+def read_item(action: str):
+    match action:
+        case "naifu_all":
+            return naifu_set
+        case "sd_all":
+            return sd_set
+        case "naifu":
+            return len(naifu_set)
+        case "sd":
+            return len(sd_set)
+
+
+@app.on_event("startup")
+async def start_up():
+    print("\033[1;32mStart:\t  Scanning from 33000 to 40000\033[0m")
+    asyncio.create_task(run())
 
 
 if __name__ == "__main__":
