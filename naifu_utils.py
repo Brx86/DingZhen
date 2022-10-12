@@ -9,7 +9,7 @@ sd_set = set()
 naifu_set = set()
 
 
-async def check_html(n: int, pool: int = 50) -> str | None:
+async def check_html(n: int, pool: int = 30) -> str | None:
     """检查网页是否有效且为Stable Diffusion Webui或Naifu，有效地址加入集合
 
     Args:
@@ -38,7 +38,7 @@ async def check_html(n: int, pool: int = 50) -> str | None:
                         return url
                     else:
                         return
-            except httpx.RemoteProtocolError:
+            except (httpx.RemoteProtocolError, httpx.ConnectError):
                 return
             except (httpx.ReadTimeout, httpx.ConnectTimeout):
                 pass
@@ -51,6 +51,16 @@ async def run():
         for n in range(33000, 43000):
             await asyncio.sleep(0.1)
             asyncio.create_task(check_html(n))
+
+
+async def recheck():
+    while True:
+        await asyncio.sleep(10)
+        for n in list(naifu_set):
+            if (await check_html(n, pool=100)) is None:
+                print(f"\033[1;33mRemove:\t  http://bore.pub:{n}\033[0m")
+                if n in naifu_set:
+                    naifu_set.remove(n)
 
 
 async def get_one():

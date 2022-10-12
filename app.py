@@ -89,7 +89,7 @@ async def handle_wombo(response: Response, item: Item = Body()):
         return info
 
 
-from naifu_utils import get_one, naifu_set, run, sd_set
+from naifu_utils import get_one, naifu_set, run, sd_set, recheck
 
 
 @app.get("/ai")
@@ -102,7 +102,7 @@ async def redirect_url():
 
 @app.get("/ai/url")
 async def return_url():
-    return await get_one()
+    return (await get_one()) or "当前没有可用的地址！"
 
 
 @app.get("/ai/{action}")
@@ -119,9 +119,10 @@ def read_item(action: str):
 
 
 @app.on_event("startup")
-async def start_up():
+async def start():
     print("\033[1;32mStart:\t  Scanning from 33000 to 40000\033[0m")
     asyncio.create_task(run())
+    asyncio.create_task(recheck())
 
 
 if __name__ == "__main__":
