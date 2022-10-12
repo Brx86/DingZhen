@@ -94,6 +94,14 @@ from sd_utils import *
 from threading import Thread
 
 
+@app.get("/ai")
+async def redirect_nd_old():
+    if url := await get_one_nd():
+        return RedirectResponse(url)
+    else:
+        return "当前没有可用的地址！"
+
+
 @app.get("/naifu")
 async def redirect_nd():
     if url := await get_one_nd():
