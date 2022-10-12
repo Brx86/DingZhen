@@ -89,40 +89,46 @@ async def handle_wombo(response: Response, item: Item = Body()):
         return info
 
 
-from naifu_utils import get_one, naifu_set, run, sd_set, recheck
+from naifu_utils import *
+from sd_utils import *
+from threading import Thread
 
 
-@app.get("/ai")
-async def redirect_url():
-    if url := await get_one():
+@app.get("/naifu")
+async def redirect_nd():
+    if url := await get_one_nd():
         return RedirectResponse(url)
     else:
         return "当前没有可用的地址！"
 
 
-@app.get("/ai/url")
-async def return_url():
-    return (await get_one()) or "当前没有可用的地址！"
+@app.get("/stable")
+async def redirect_sd():
+    if url := await get_one_sd():
+        return RedirectResponse(url)
+    else:
+        return "当前没有可用的地址！"
 
 
-@app.get("/ai/{action}")
-def read_item(action: str):
-    match action:
-        case "naifu_all":
-            return naifu_set
-        case "sd_all":
-            return sd_set
-        case "naifu":
-            return len(naifu_set)
-        case "sd":
-            return len(sd_set)
+@app.get("/{name}/{action}")
+async def return_url(name: str, action: str):
+    if name == "naifu" and action == "url":
+        return (await get_one_nd()) or "当前没有可用的地址！"
+    elif name == "stable" and action == "url":
+        return (await get_one_sd()) or "当前没有可用的地址！"
+    elif name == "naifu" and action == "info":
+        return {"available": len(nd_set), "list": nd_set}
+    elif name == "stable" and action == "info":
+        return {"available": len(sd_set), "list": sd_set}
 
 
 @app.on_event("startup")
 async def start():
     print("\033[1;32mStart:\t  Scanning from 33000 to 40000\033[0m")
-    asyncio.create_task(run())
-    asyncio.create_task(recheck())
+    asyncio.create_task(run_scan_nd())
+    asyncio.create_task(run_scan_sd())
+    Thread(target=run_check_nd).start()
+    Thread(target=run_check_sd).start()
 
 
 if __name__ == "__main__":
