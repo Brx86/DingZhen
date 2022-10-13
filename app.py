@@ -94,6 +94,12 @@ from sd_utils import *
 from threading import Thread
 
 
+@app.get("/logs")
+async def return_log():
+    with open(f"{cwd}/logs/logfile.log", "r") as f:
+        return Response(f.read())
+
+
 @app.get("/ai")
 async def redirect_nd_old():
     if url := await get_one_nd():
@@ -140,6 +146,7 @@ async def start():
 
 
 if __name__ == "__main__":
-    import uvicorn  # type: ignore
+    import uvicorn, pathlib  # type: ignore
 
-    uvicorn.run(app, host="0.0.0.0", port=7777)
+    cwd = pathlib.Path(__file__).parent.resolve()
+    uvicorn.run(app, host="0.0.0.0", port=7777, log_config=f"{cwd}/logs/log.ini")

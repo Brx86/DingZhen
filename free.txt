@@ -1,0 +1,15 @@
+直接浏览器访问：
+Naifu
+https://api.ay1.us/ai
+https://api.ay1.us/naifu
+
+StableDiffusion
+https://api.ay1.us/stable
+
+获取一个可用链接：
+https://api.ay1.us/naifu/url
+https://api.ay1.us/stable/url
+
+获取当前链接池信息：
+https://api.ay1.us/naifu/info
+https://api.ay1.us/stable/info

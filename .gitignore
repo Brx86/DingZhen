@@ -1,3 +1,5 @@
 .history
+.env
 __pycache__
 genIndex.py
+logs/logfile.log
